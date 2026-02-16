@@ -4,214 +4,247 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALIP — Interactive Onboarding Platform</title>
+<title>ALIP — AI Learning Sandbox</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  background: #0b1120;
-  color: #f8fafc;
-  line-height: 1.6;
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0b0f19;
+  color: white;
+  overflow-x: hidden;
 }
 
-header {
-  padding: 120px 20px 80px;
+/* Navigation */
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px 40px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  opacity: 0.8;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+/* Hero */
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  max-width: 900px;
-  margin: auto;
+  padding: 20px;
+  animation: fadeIn 1.5s ease;
 }
 
-h1 {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  margin-bottom: 20px;
+.hero h1 {
+  font-size: 48px;
+  max-width: 800px;
 }
 
-h2 {
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-p {
-  opacity: 0.9;
-  font-size: 1.1rem;
+.hero p {
+  opacity: 0.8;
+  max-width: 600px;
 }
 
 .btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 16px 32px;
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
-  color: white;
-  border-radius: 12px;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #4f8cff;
+  border-radius: 10px;
   text-decoration: none;
+  color: white;
   font-weight: bold;
-  transition: all 0.25s ease;
+  transition: 0.3s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+  transform: scale(1.05);
 }
 
-section {
+/* Sections */
+
+.section {
   padding: 100px 20px;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
 }
 
-.grid {
-  display: grid;
-  gap: 30px;
+.section h2 {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-@media (min-width: 768px) {
-  .grid-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* Screenshot cards */
 
-  .grid-2 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .card {
-  background: #111827;
-  padding: 35px;
-  border-radius: 18px;
-  transition: all 0.3s ease;
+  background: #121726;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transform: translateY(40px);
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.9s ease forwards;
+  transition: all 1s ease;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.screenshot {
+.card img {
   width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
 }
 
-.screenshot:hover {
-  transform: scale(1.03);
+.card.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-footer {
+/* Footer */
+
+.footer {
   text-align: center;
-  padding: 60px 20px;
-  opacity: 0.7;
+  padding: 40px;
+  opacity: 0.6;
+}
+
+/* Animation */
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 32px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>Interactive Onboarding for Web3</h1>
+<!-- Navigation -->
 
-<p>
-ALIP transforms how newcomers learn decentralized technology
-through immersive, hands-on simulations that replace confusing tutorials.
-</p>
-
-<a href="https://alip-demo.vercel.app" target="_blank" class="btn">
-Launch Interactive Demo
-</a>
-</header>
-
-<section>
-<h2>The Problem</h2>
-
-<div class="grid grid-3">
-
-<div class="card">
-<h3>Confusing Entry Point</h3>
-<p>New users face steep learning curves in Web3 onboarding.</p>
+<div class="nav">
+  <div><b>ALIP</b></div>
+  <div>
+    <a href="#features">Features</a>
+    <a href="#demo">Demo</a>
+  </div>
 </div>
 
-<div class="card">
-<h3>Fear of Losing Funds</h3>
-<p>Beginners hesitate to experiment with real transactions.</p>
-</div>
+<!-- Hero -->
 
-<div class="card">
-<h3>Static Education</h3>
-<p>Traditional tutorials fail to provide hands-on experience.</p>
-</div>
-
-</div>
+<section class="hero">
+  <h1>AI Learning Intelligence Platform</h1>
+  <p>
+    A sandbox-driven education platform where learners experiment,
+    educators analyze performance, and AI delivers real insights.
+  </p>
+  <a href="#demo" class="btn">Explore Demo</a>
 </section>
 
-<section>
-<h2>Our Interactive Solution</h2>
+<!-- Features -->
 
-<div class="grid grid-3">
+<section class="section" id="features">
+  <h2>Core Features</h2>
 
-<div class="card">
-<h3>Sandbox Simulation</h3>
-<p>Practice Web3 workflows safely in a guided environment.</p>
-</div>
+  <div class="grid">
 
-<div class="card">
-<h3>Mission-Based Learning</h3>
-<p>Step-by-step onboarding that builds real confidence.</p>
-</div>
+    <div class="card">
+      <h3>Sandbox Learning</h3>
+      <p>
+        Students interact with a live experimentation environment,
+        testing ideas and learning through guided AI feedback.
+      </p>
+    </div>
 
-<div class="card">
-<h3>Educator Infrastructure</h3>
-<p>Tools for communities to host interactive workshops.</p>
-</div>
+    <div class="card">
+      <h3>Analytics Dashboard</h3>
+      <p>
+        Real-time insights track progress, highlight gaps,
+        and measure learning performance.
+      </p>
+    </div>
 
-</div>
+    <div class="card">
+      <h3>Educator Tools</h3>
+      <p>
+        Teachers manage classrooms, monitor engagement,
+        and personalize instruction using AI assistance.
+      </p>
+    </div>
+
+  </div>
 </section>
 
-<section>
-<h2>See ALIP in Action</h2>
+<!-- Demo Screenshots -->
 
-<div class="grid grid-2">
+<section class="section" id="demo">
+  <h2>Live Demo Preview</h2>
 
-<img src="screenshot1.png" class="screenshot">
-<img src="screenshot2.png" class="screenshot">
+  <div class="grid">
 
-</div>
+    <div class="card">
+      <img src="sandbox.png">
+      <h3>Sandbox Interface</h3>
+    </div>
+
+    <div class="card">
+      <img src="analytics.png">
+      <h3>Analytics Dashboard</h3>
+    </div>
+
+    <div class="card">
+      <img src="educator.png">
+      <h3>Educator Panel</h3>
+    </div>
+
+  </div>
 </section>
 
-<section>
-<h2>Vision & Impact</h2>
+<!-- Footer -->
 
-<div class="card" style="text-align:center;">
-<p>
-ALIP aims to become the onboarding layer for decentralized ecosystems,
-accelerating adoption and empowering communities through experiential education.
-</p>
+<div class="footer">
+  © 2026 ALIP — Built for intelligent education
 </div>
-</section>
 
-<footer>
-© ALIP — Interactive Learning Infrastructure
-</footer>
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
