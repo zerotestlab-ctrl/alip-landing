@@ -4,246 +4,277 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALIP — AI Learning Sandbox</title>
+<title>ALIP — Arbitrum Learning Infrastructure</title>
 
 <style>
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: system-ui, -apple-system, sans-serif;
-  background: #0b0f19;
-  color: white;
+}
+
+body {
+  background: #020617;
+  color: #f8fafc;
   overflow-x: hidden;
 }
 
-/* Navigation */
-
-.nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px 40px;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  z-index: 999;
-}
-
-.nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  opacity: 0.8;
-}
-
-.nav a:hover {
-  opacity: 1;
-}
-
-/* Hero */
+/* ===== HERO ===== */
 
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 20px;
-  animation: fadeIn 1.5s ease;
+  padding: 40px 20px;
+  position: relative;
 }
 
-.hero h1 {
-  font-size: 48px;
-  max-width: 800px;
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  opacity: 0.25;
+  filter: blur(100px);
+  z-index: -1;
 }
 
-.hero p {
-  opacity: 0.8;
-  max-width: 600px;
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.2rem;
+  opacity: 0.85;
 }
 
 .btn {
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: #4f8cff;
-  border-radius: 10px;
-  text-decoration: none;
+  display: inline-block;
+  margin-top: 40px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
+  border-radius: 12px;
+  text-decoration: none;
   font-weight: bold;
-  transition: 0.3s;
+  transition: transform 0.2s ease;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 
-/* Sections */
+/* ===== SECTIONS ===== */
 
-.section {
-  padding: 100px 20px;
-  max-width: 1200px;
+section {
+  padding: 120px 20px;
+  max-width: 1100px;
   margin: auto;
 }
 
-.section h2 {
+h2 {
   text-align: center;
-  margin-bottom: 40px;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin-bottom: 60px;
 }
 
-/* Screenshot cards */
+/* ===== GRID ===== */
 
 .grid {
   display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
 }
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== CARDS ===== */
 
 .card {
-  background: #121726;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  transform: translateY(40px);
+  background: #0f172a;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #1f2937;
   opacity: 0;
-  transition: all 1s ease;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-.card img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-.card.show {
-  transform: translateY(0);
+.card.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
-/* Footer */
+/* ===== IMPACT BLOCK ===== */
 
-.footer {
+.impact {
+  background: linear-gradient(135deg, #1e293b, #020617);
+  padding: 60px;
+  border-radius: 24px;
   text-align: center;
-  padding: 40px;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  text-align: center;
+  padding: 60px 20px;
   opacity: 0.6;
 }
 
-/* Animation */
+/* ===== ANIMATION SCRIPT HOOK ===== */
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
-/* Mobile */
-
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 32px;
-  }
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navigation -->
+<!-- HERO -->
 
-<div class="nav">
-  <div><b>ALIP</b></div>
-  <div>
-    <a href="#features">Features</a>
-    <a href="#demo">Demo</a>
-  </div>
+<section class="hero fade">
+<div>
+<h1>ALIP — Interactive Onboarding for Arbitrum</h1>
+
+<p class="subtitle">
+ALIP is a learning infrastructure platform that helps newcomers
+understand and safely explore the Arbitrum ecosystem through
+immersive, hands-on simulation instead of static tutorials.
+</p>
+
+<a href="https://alip-demo.vercel.app" target="_blank" class="btn">
+Launch Interactive Demo
+</a>
+</div>
+</section>
+
+<!-- PROBLEM -->
+
+<section class="fade">
+<h2>The Onboarding Problem</h2>
+
+<div class="grid grid-4">
+
+<div class="card">
+<h3>Complex Entry Barrier</h3>
+<p>Wallets, bridges and Layer-2 workflows overwhelm new users.</p>
 </div>
 
-<!-- Hero -->
-
-<section class="hero">
-  <h1>AI Learning Intelligence Platform</h1>
-  <p>
-    A sandbox-driven education platform where learners experiment,
-    educators analyze performance, and AI delivers real insights.
-  </p>
-  <a href="#demo" class="btn">Explore Demo</a>
-</section>
-
-<!-- Features -->
-
-<section class="section" id="features">
-  <h2>Core Features</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Sandbox Learning</h3>
-      <p>
-        Students interact with a live experimentation environment,
-        testing ideas and learning through guided AI feedback.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Analytics Dashboard</h3>
-      <p>
-        Real-time insights track progress, highlight gaps,
-        and measure learning performance.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Educator Tools</h3>
-      <p>
-        Teachers manage classrooms, monitor engagement,
-        and personalize instruction using AI assistance.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- Demo Screenshots -->
-
-<section class="section" id="demo">
-  <h2>Live Demo Preview</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <img src="sandbox.png">
-      <h3>Sandbox Interface</h3>
-    </div>
-
-    <div class="card">
-      <img src="analytics.png">
-      <h3>Analytics Dashboard</h3>
-    </div>
-
-    <div class="card">
-      <img src="educator.png">
-      <h3>Educator Panel</h3>
-    </div>
-
-  </div>
-</section>
-
-<!-- Footer -->
-
-<div class="footer">
-  © 2026 ALIP — Built for intelligent education
+<div class="card">
+<h3>Fear of Losing Funds</h3>
+<p>Beginners avoid experimentation due to financial risk.</p>
 </div>
+
+<div class="card">
+<h3>Static Education</h3>
+<p>Documentation alone cannot teach real interaction.</p>
+</div>
+
+<div class="card">
+<h3>Slowed Ecosystem Growth</h3>
+<p>Poor onboarding limits adoption and retention.</p>
+</div>
+
+</div>
+</section>
+
+<!-- SOLUTION -->
+
+<section class="fade">
+<h2>ALIP Learning Infrastructure</h2>
+
+<div class="grid grid-4">
+
+<div class="card">
+<h3>Sandbox Simulation</h3>
+<p>Risk-free environment for practicing Web3 interactions.</p>
+</div>
+
+<div class="card">
+<h3>Guided Missions</h3>
+<p>Interactive onboarding paths tailored to Arbitrum.</p>
+</div>
+
+<div class="card">
+<h3>Progress Analytics</h3>
+<p>Measure engagement and learning milestones.</p>
+</div>
+
+<div class="card">
+<h3>Educator Modules</h3>
+<p>Tools for workshops and community onboarding.</p>
+</div>
+
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+
+<section class="fade">
+<h2>How It Works</h2>
+
+<div class="grid grid-4">
+
+<div class="card"><strong>1.</strong> Enter simulated interface</div>
+<div class="card"><strong>2.</strong> Complete guided missions</div>
+<div class="card"><strong>3.</strong> Build real confidence</div>
+<div class="card"><strong>4.</strong> Transition to live apps</div>
+
+</div>
+</section>
+
+<!-- IMPACT -->
+
+<section class="fade">
+<h2>Ecosystem Impact</h2>
+
+<div class="impact">
+<p>
+ALIP accelerates Arbitrum adoption by transforming onboarding
+into an safe, interactive learning experience.
+This infrastructure supports long-term ecosystem growth,
+education scalability, and user retention.
+</p>
+</div>
+</section>
+
+<footer>
+© ALIP — Built for Arbitrum Education Initiatives
+</footer>
+
+<!-- SCROLL ANIMATION SCRIPT -->
 
 <script>
-const cards = document.querySelectorAll('.card');
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.classList.add("visible");
     }
   });
 });
 
-cards.forEach(card => observer.observe(card));
+document.querySelectorAll(".fade, .card").forEach(el => {
+  observer.observe(el);
+});
 </script>
 
 </body>
