@@ -3,22 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ALIP — Arbitrum Learning Platform</title>
+
+<title>ALIP — Interactive Onboarding for Arbitrum</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,sans-serif}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #f8fafc;
+  line-height: 1.6;
+}
+
+header {
+  padding: 100px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+p {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 28px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #2563eb;
+}
+
+section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media (min-width: 768px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: #1e293b;
+  padding: 30px;
+  border-radius: 16px;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0.7;
+}
+</style>
+</head>
 
 <body>
 
 <header>
-<h1>ALIP — Interactive Onboarding Infrastructure for the Arbitrum Ecosystem</h1>
+<h1>ALIP — Interactive Onboarding Infrastructure</h1>
 
 <p>
 ALIP is an immersive learning platform that helps new users safely
-understand and interact with decentralized applications on
-0.
-Instead of static tutorials, users learn by doing inside a guided,
-risk-free simulation environment.
+understand Web3 and decentralized applications through guided,
+hands-on simulations instead of static tutorials.
 </p>
 
 <a href="https://alip-demo.vercel.app" target="_blank" class="btn">
@@ -27,125 +117,115 @@ Explore the Interactive Demo
 </header>
 
 <section>
-<h2 style="text-align:center;margin-bottom:40px;">
-The Problem
-</h2>
+<h2>The Problem</h2>
 
 <div class="grid grid-4">
+
 <div class="card">
 <h3>Complex Onboarding</h3>
-<p>
-New users struggle with wallets, bridges, gas fees,
-and navigating decentralized apps.
-</p>
+<p>New users struggle with wallets, bridges, and Web3 workflows.</p>
 </div>
 
 <div class="card">
-<h3>Fear of Losing Funds</h3>
-<p>
-Beginners hesitate to experiment because mistakes
-can cost real money.
-</p>
+<h3>Fear of Mistakes</h3>
+<p>Beginners hesitate to experiment because errors cost real money.</p>
 </div>
 
 <div class="card">
-<h3>Static Education</h3>
-<p>
-Most Web3 tutorials are passive and difficult to follow.
-Users need hands-on experience.
-</p>
+<h3>Passive Learning</h3>
+<p>Most tutorials are static and hard to follow.</p>
 </div>
 
 <div class="card">
-<h3>Ecosystem Growth Barrier</h3>
-<p>
-Poor onboarding slows adoption and limits
-community expansion.
-</p>
+<h3>Slow Adoption</h3>
+<p>Poor onboarding limits ecosystem growth.</p>
 </div>
+
 </div>
 </section>
 
 <section>
-<h2 style="text-align:center;margin-bottom:40px;">
-Our Solution: Interactive Learning Infrastructure
-</h2>
+<h2>Our Solution</h2>
 
 <div class="grid grid-4">
+
 <div class="card">
 <h3>Sandbox Simulation</h3>
-<p>
-A safe environment where users practice
-real Web3 actions without financial risk.
-</p>
+<p>Practice Web3 actions safely without financial risk.</p>
 </div>
 
 <div class="card">
 <h3>Guided Missions</h3>
-<p>
-Step-by-step onboarding paths that teach
-core ecosystem workflows.
-</p>
+<p>Step-by-step interactive onboarding paths.</p>
 </div>
 
 <div class="card">
-<h3>Progress Analytics</h3>
-<p>
-Track learning milestones and user engagement
-in real time.
-</p>
+<h3>Progress Tracking</h3>
+<p>Measure learning milestones and engagement.</p>
 </div>
 
 <div class="card">
 <h3>Educator Tools</h3>
-<p>
-Workshops and community leaders can host
-interactive onboarding sessions.
-</p>
+<p>Host workshops and onboarding sessions.</p>
 </div>
+
 </div>
 </section>
 
 <section>
-<h2 style="text-align:center;margin-bottom:40px;">
-How ALIP Works
-</h2>
+<h2>How ALIP Works</h2>
 
 <div class="grid grid-4">
+
 <div class="card">
-<strong>1. Enter the Sandbox</strong>
+<strong>1. Enter Sandbox</strong>
 <p>Users access a simulated Web3 interface.</p>
 </div>
 
 <div class="card">
-<strong>2. Complete Guided Tasks</strong>
-<p>Interactive missions teach core concepts.</p>
+<strong>2. Complete Missions</strong>
+<p>Interactive tasks teach core concepts.</p>
 </div>
 
 <div class="card">
 <strong>3. Build Confidence</strong>
-<p>Users gain practical experience safely.</p>
+<p>Hands-on practice removes fear.</p>
 </div>
 
 <div class="card">
 <strong>4. Transition to Real Apps</strong>
-<p>Graduates onboard seamlessly into the ecosystem.</p>
+<p>Users onboard smoothly into the ecosystem.</p>
 </div>
+
 </div>
 </section>
 
 <section>
-<h2 style="text-align:center;margin-bottom:40px;">
-Impact & Vision
-</h2>
+<h2>Impact & Vision</h2>
 
 <div class="card" style="text-align:center;">
+
 <p>
-ALIP aims to become the standard onboarding layer for
-decentralized ecosystems — reducing friction,
-accelerating adoption, and empowering communities
-through experiential education.
+ALIP aims to become the onboarding layer for decentralized ecosystems,
+accelerating adoption and empowering communities through experiential education.
 </p>
+
+<br>
+
+<p>
+By transforming how newcomers learn Web3,
+ALIP supports long-term ecosystem growth and user retention.
+</p>
+
+</div>
+</section>
+
+<footer>
+© ALIP — Interactive Learning Infrastructure
+</footer>
+
+</body>
+</html></p>
 
 <br>
 
